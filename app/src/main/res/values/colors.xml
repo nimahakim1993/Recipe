@@ -1,5 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
+    <color name="colorPrimaryDark">#3bb0ba</color>
+    <color name="colorPrimary">#45ccd8</color>
+    <color name="colorAccent">#EC4856</color>
+    <color name="colorAccentDark">#EC4856</color>
+    <color name="colorToolbar">#45ccd8</color>
+    <!--    <color name="colorAccentLight">#65ECE6</color>-->
+    <color name="textValueColor">#000000</color>
+    <color name="textTitleColor">#4F5050</color>
+    <color name="backgroundColor">#FFFFFF</color>
+    <color name="dividerColor">#f2f2f2</color>
+    <color name="flatColor">#e8e8e8</color>
 </resources>

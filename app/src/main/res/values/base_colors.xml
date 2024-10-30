@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="blue">#1976D2</color>
+    <color name="red">#d32f2f</color>
+    <color name="purple">#7B1FA2</color>
+    <color name="lightBlue">#03A9F4</color>
+    <color name="green">#008000</color>
+    <color name="yellow">#FDD835</color>
+    <color name="orange">#FF5722</color>
+    <color name="brown">#795548</color>
+    <color name="gray">#616161</color>
+    <color name="silver">#9F9292</color>
+    <color name="golden">#F4CA0D</color>
+    <color name="pink">#E91E63</color>
+    <color name="white">#ffffff</color>
+    <color name="black">#000000</color>
+    <color name="navyBlue">#1A237E</color>
+    <color name="crimson">#b71c1c</color>
+    <color name="cream">#FFF59D</color>
+    <color name="okr">#956C3F</color>
+    <color name="lilac">#BA68C8</color>
+    <color name="darkRed">#7E0E0E</color>
+    <color name="lemonGreen">#4AFF00</color>
+    <color name="mediumSeaGreen">#3cb371</color>
+    <color name="darkTurquoise">#00bfff</color>
+    <color name="darkgreen">#006400</color>
+    <color name="goldenrod">#daa520</color>
+    <color name="darkorange">#ff8c00</color>
+
+    <color name="bulletRed">#ff0000</color>
+    <color name="bulletYellow">#ffff00</color>
+    <color name="bulletBlue">#48d1cc</color>
+    <color name="bulletOrange">#FD8A10</color>
+    <color name="bulletGreen">#3cb371</color>
+    <color name="khaki">#f0e68c</color>
+
+</resources>
