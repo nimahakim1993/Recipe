@@ -47,8 +47,8 @@ class RecipeAdapter: RecyclerView.Adapter<RecipeAdapter.MyViewHolder>() {
         return differ.currentList.size
     }
 
-    private var onItemClickListener : ((Int) -> Unit)?= null
-    fun setOnItemClickListener(listener: (Int) -> Unit){
+    private var onItemClickListener : ((Recipe) -> Unit)?= null
+    fun setOnItemClickListener(listener: (Recipe) -> Unit){
         onItemClickListener = listener
     }
 
@@ -66,7 +66,7 @@ class RecipeAdapter: RecyclerView.Adapter<RecipeAdapter.MyViewHolder>() {
 
                 root.setOnClickListener {
                     onItemClickListener?.let {
-                        it(item.id)
+                        it(item)
                     }
                 }
             }

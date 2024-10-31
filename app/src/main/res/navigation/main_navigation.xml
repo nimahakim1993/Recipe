@@ -35,11 +35,25 @@
         android:id="@+id/recipeFragment"
         android:name="com.example.recipe2.presentation.fragment.RecipeFragment"
         tools:layout="@layout/fragment_Recipe"
-        android:label="RecipeFragment" >
+        android:label="" >
 
         <argument
             android:name="categorySelected"
             app:argType="com.example.recipe2.data.entity.Category"/>
+        <action
+            android:id="@+id/action_recipeFragment_to_detailFragment"
+            app:destination="@id/detailFragment" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/detailFragment"
+        android:name="com.example.recipe2.presentation.fragment.DetailFragment"
+        tools:layout="@layout/fragment_detail"
+        android:label="" >
+
+        <argument
+            android:name="recipeSelected"
+            app:argType="com.example.recipe2.data.entity.Recipe"/>
 
     </fragment>
 

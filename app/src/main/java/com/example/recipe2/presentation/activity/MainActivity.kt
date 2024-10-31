@@ -66,29 +66,33 @@ class MainActivity : AppCompatActivity() {
 //            mainViewModel.setCurrentFragment(destination.id)
             when (destination.id) {
                 R.id.homeFragment -> {
-                    supportActionBar!!.show()
-//                    searchItem?.isVisible = true
+//                    supportActionBar!!.show()
+                    showBottomNavigation()
                 }
                 R.id.recipeFragment ->{
                     supportActionBar?.title = destination.label
+                    hideBottomNavigation()
+                }
+                R.id.detailFragment ->{
+                    supportActionBar?.title = destination.label
                 }
                 R.id.searchFragment -> {
-
+                    showBottomNavigation()
                 }
                 R.id.whatCookFragment -> {
-
+                    showBottomNavigation()
                 }
                 R.id.profileFragment -> {
-                    hideBottomNavigation()
+                    showBottomNavigation()
                 }
             }
         }
 
         mainViewModel.currentFragmentLabel.observe(this){ label ->
             val destinationId = navController.currentDestination?.id
-            if (destinationId == R.id.recipeFragment) {
+//            if (destinationId == R.id.recipeFragment || destinationId == R.id.detailFragment) {
                 supportActionBar?.title = label
-            }
+//            }
         }
 
 //        mainViewModel.currentFragmentId.observe(this){

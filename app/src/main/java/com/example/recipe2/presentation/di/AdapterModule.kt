@@ -1,6 +1,7 @@
 package com.example.recipe2.presentation.di
 
 import com.example.recipe2.presentation.adapter.CategoryAdapter
+import com.example.recipe2.presentation.adapter.IngredientAdapter
 import com.example.recipe2.presentation.adapter.RecipeAdapter
 import dagger.Module
 import dagger.Provides
@@ -20,5 +21,10 @@ class AdapterModule {
     @Provides
     fun provideRecipeAdapter(): RecipeAdapter {
         return RecipeAdapter()
+    }  @Singleton
+    @Provides
+    fun provideIngredientAdapter(): IngredientAdapter {
+        return IngredientAdapter()
     }
+
 }

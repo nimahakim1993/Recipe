@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:padding="8dp"
+    android:layoutDirection="rtl"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_key"
+        style="@style/tv_h4"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="start"
+        tools:text="نمک"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/tv_value"
+        app:layout_constraintHorizontal_weight="1" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_value"
+        style="@style/tv_h6"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="end"
+        tools:text="به میزان لازم"
+        app:layout_constraintTop_toTopOf="@id/tv_key"
+        app:layout_constraintBottom_toBottomOf="@id/tv_key"
+        app:layout_constraintStart_toEndOf="@id/tv_key"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_weight="1" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

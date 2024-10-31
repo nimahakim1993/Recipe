@@ -13,4 +13,4 @@ data class Recipe (
     @ColumnInfo val imageUrl: String,
     @ColumnInfo val ingredients: List<Ingredient>,
     @ColumnInfo(name = "direction_to_cook") val directionToCook: String,
-)
+): java.io.Serializable

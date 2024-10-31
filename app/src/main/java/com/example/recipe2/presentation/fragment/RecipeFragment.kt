@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
@@ -18,6 +19,8 @@ import com.example.recipe2.presentation.adapter.CategoryAdapter
 import com.example.recipe2.presentation.adapter.RecipeAdapter
 import com.example.recipe2.presentation.viewmodel.HomeViewModel
 import com.example.recipe2.presentation.viewmodel.HomeViewModelFactory
+import com.example.recipe2.presentation.viewmodel.MainViewModel
+import com.example.recipe2.presentation.viewmodel.MainViewModelFactory
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
@@ -33,6 +36,10 @@ class RecipeFragment: Fragment() {
     private val homeViewModel: HomeViewModel by viewModels{ homeViewModelFactory }
     @Inject
     lateinit var recipeAdapter: RecipeAdapter
+    @Inject
+    lateinit var mainViewModelFactory: MainViewModelFactory
+    private val mainViewModel: MainViewModel by activityViewModels{mainViewModelFactory}
+
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -51,6 +58,8 @@ class RecipeFragment: Fragment() {
             this.category = it.categorySelected
         }
 
+        mainViewModel.setFragmentLabel(category.title)
+
 //        homeViewModel.getAllRecipe().observe(viewLifecycleOwner){recipes ->
 //            Toast.makeText(requireContext(), "${recipes.size}", Toast.LENGTH_SHORT).show()
 //        }
@@ -66,8 +75,9 @@ class RecipeFragment: Fragment() {
 
             }
 
-        recipeAdapter.setOnItemClickListener { recipeId ->
-
+        recipeAdapter.setOnItemClickListener { recipe ->
+            mainViewModel.setFragmentLabel(recipe.title)
+            findNavController().navigate(RecipeFragmentDirections.actionRecipeFragmentToDetailFragment(recipe))
         }
 
     }
