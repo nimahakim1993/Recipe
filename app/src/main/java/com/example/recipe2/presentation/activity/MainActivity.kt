@@ -8,8 +8,10 @@ import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.GravityCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.viewModels
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
@@ -49,25 +51,25 @@ class MainActivity : MyActivity() {
 
         window.decorView.layoutDirection = View.LAYOUT_DIRECTION_RTL
 
+        binding.drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED)
+
         val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
         navController = navHostFragment.navController
         appBarConfiguration = AppBarConfiguration(
             setOf(
                 R.id.homeFragment, R.id.searchFragment, R.id.whatCookFragment, R.id.profileFragment
-            )
+            ),
+            binding.drawerLayout
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
-        binding.navView.setupWithNavController(navController)
+
+        binding.toolbar.setupWithNavController(navController, appBarConfiguration)
+        binding.drawerNavView.setupWithNavController(navController)
+        binding.bottomNavView.setupWithNavController(navController)
 
         navController.addOnDestinationChangedListener { _, destination, _ ->
-//            val searchItem = binding.toolbar.menu.findItem(R.id.search_toolbar)
-//            searchItem?.isVisible = false
-//            showBottomNavigation()
-
-//            mainViewModel.setCurrentFragment(destination.id)
             when (destination.id) {
                 R.id.homeFragment -> {
-//                    supportActionBar!!.show()
                     showBottomNavigation()
                 }
                 R.id.recipeFragment ->{
@@ -95,45 +97,28 @@ class MainActivity : MyActivity() {
                 supportActionBar?.title = label
 //            }
         }
-
-//        mainViewModel.currentFragmentId.observe(this){
-//            if (it == R.id.formsFragment || it == R.id.inspectionDocumentFragment){
-//                if (!checkStoragePermission())
-//                    requestStoragePermission()
-//            }
-//            if (it == R.id.loginFragment && !checkSmsPermission()){
-//                requestSmsPermission()
-//            }
-//            if (it != R.id.loginFragment && it != R.id.splashFragment) {
-//                if (!isRunningLocationService) {
-//                    if (checkPermission()) {
-//                        isRunningLocationService = true
-//                        locationService.startSendingGpsTask()
-//                    } else
-//                        requestPermission()
-//                }
-//            }else{
-//                locationService.stopSendingGpsTask()
-//            }
-//        }
     }
     override fun onSupportNavigateUp(): Boolean {
         return NavigationUI.navigateUp(navController, null)
     }
 
     private fun hideBottomNavigation(){
-        binding.navView.clearAnimation()
-        binding.navView.animate().translationY(binding.navView.height.toFloat()).duration = 300
-        binding.navView.visibility = View.GONE
+        binding.bottomNavView.clearAnimation()
+        binding.bottomNavView.animate().translationY(binding.bottomNavView.height.toFloat()).duration = 300
+        binding.bottomNavView.visibility = View.GONE
     }
 
     private fun showBottomNavigation(){
-        binding.navView.clearAnimation()
-        binding.navView.animate().translationY(0f).duration = 300
-        binding.navView.visibility = View.VISIBLE
+        binding.bottomNavView.clearAnimation()
+        binding.bottomNavView.animate().translationY(0f).duration = 300
+        binding.bottomNavView.visibility = View.VISIBLE
     }
     @Deprecated("Deprecated in Java")
     override fun onBackPressed() {
+        if (binding.drawerLayout.isDrawerOpen(GravityCompat.START)) {
+            binding.drawerLayout.closeDrawer(GravityCompat.START)
+            return
+        }
         val currentDestinationId = navController.currentDestination?.id
         // Check if the current destination is one of the destinations in the app bar configuration
         val isInAppBarDestinations = currentDestinationId in appBarConfiguration.topLevelDestinations
@@ -146,9 +131,6 @@ class MainActivity : MyActivity() {
             } else
                 finish()
         }
-//        else if (currentDestinationId == R.id.loginFragment || currentDestinationId == R.id.splashFragment)
-////            exitProcess(0)
-//            finish()
         else
             super.onBackPressed()
     }

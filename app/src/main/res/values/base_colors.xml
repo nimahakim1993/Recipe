@@ -37,5 +37,6 @@
     <color name="gray_50">#FAFAFA</color>
     <color name="gray_100">#F5F5F5</color>
     <color name="gray_400">#BDBDBD</color>
+    <color name="yellow_high">#FBC02D</color>
 
 </resources>
