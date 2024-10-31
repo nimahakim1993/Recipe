@@ -2,6 +2,7 @@ package com.example.recipe2.presentation.di
 
 import android.app.Application
 import com.example.recipe2.presentation.viewmodel.HomeViewModelFactory
+import com.example.recipe2.presentation.viewmodel.MainViewModelFactory
 import com.example.recipe2.repository.HomeRepository
 import dagger.Module
 import dagger.Provides
@@ -20,5 +21,12 @@ class FactoryModule {
         homeRepository: HomeRepository
     ): HomeViewModelFactory{
         return HomeViewModelFactory(app, homeRepository)
+    }
+    @ActivityScoped
+    @Provides
+    fun provideMainViewModelFactory(
+        app: Application
+    ): MainViewModelFactory{
+        return MainViewModelFactory(app)
     }
 }

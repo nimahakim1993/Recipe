@@ -21,6 +21,8 @@ import com.example.recipe2.R
 import com.example.recipe2.databinding.ActivityMainBinding
 import com.example.recipe2.presentation.viewmodel.HomeViewModel
 import com.example.recipe2.presentation.viewmodel.HomeViewModelFactory
+import com.example.recipe2.presentation.viewmodel.MainViewModel
+import com.example.recipe2.presentation.viewmodel.MainViewModelFactory
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
@@ -30,6 +32,11 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var navController: NavController
     private lateinit var appBarConfiguration: AppBarConfiguration
+    private lateinit var currentlabel :String
+
+    @Inject
+    lateinit var mainViewModelFactory: MainViewModelFactory
+    private val mainViewModel: MainViewModel by viewModels { mainViewModelFactory }
 
     private var isBackPressed = false
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -62,6 +69,9 @@ class MainActivity : AppCompatActivity() {
                     supportActionBar!!.show()
 //                    searchItem?.isVisible = true
                 }
+                R.id.recipeFragment ->{
+                    supportActionBar?.title = destination.label
+                }
                 R.id.searchFragment -> {
 
                 }
@@ -71,6 +81,13 @@ class MainActivity : AppCompatActivity() {
                 R.id.profileFragment -> {
                     hideBottomNavigation()
                 }
+            }
+        }
+
+        mainViewModel.currentFragmentLabel.observe(this){ label ->
+            val destinationId = navController.currentDestination?.id
+            if (destinationId == R.id.recipeFragment) {
+                supportActionBar?.title = label
             }
         }
 

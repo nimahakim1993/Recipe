@@ -75,7 +75,7 @@ object SampleData {
 
     val categories = listOf(
         Category(id = 1, title = "دسر"),
-        Category(id = 2, title = "غذاهای"),
+        Category(id = 2, title = "سنتی"),
         Category(id = 3, title = "سالاد"),
         Category(id = 4, title = "نوشیدنی‌"),
         Category(id = 5, title = "پیش‌غذا")
