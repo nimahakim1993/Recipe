@@ -35,12 +35,12 @@ class DataBaseModule {
                 ).build()
 
                 CoroutineScope(Dispatchers.IO).launch {
-//                    val categoryDao = database.getCategoryDao()
+                    val categoryDao = database.getCategoryDao()
                     val recipeDao = database.getRecipeDao()
 
                     // Sample Categories
-//                    val categories = SampleData.categories
-//                    categories.forEach { categoryDao.insert(it) }
+                    val categories = SampleData.categories
+                    categories.forEach { categoryDao.insert(it) }
 
                     // Sample Recipes
                     val recipes = SampleData.recipes

@@ -22,7 +22,7 @@ object SampleData {
         Recipe(
             id = 2,
             title = "قورمه‌سبزی",
-            categoryId = 2,
+            categoryId = 1,
             imageUrl = "https://example.com/ghormeh_sabzi.jpg",
             ingredients = listOf(
                 Ingredient("سبزی قورمه", "500 گرم"),

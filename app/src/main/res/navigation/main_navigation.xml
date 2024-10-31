@@ -11,6 +11,10 @@
         tools:layout="@layout/fragment_home"
         android:label="دسته بندی" >
 
+        <action
+            android:id="@+id/action_homeFragment_to_recipeFragment"
+            app:destination="@id/recipeFragment" />
+
     </fragment>
     <fragment
         android:id="@+id/whatCookFragment"
@@ -27,5 +31,16 @@
         android:name="com.example.recipe2.presentation.fragment.SearchFragment"
         tools:layout="@layout/fragment_search"
         android:label="جستجو" />
+    <fragment
+        android:id="@+id/recipeFragment"
+        android:name="com.example.recipe2.presentation.fragment.RecipeFragment"
+        tools:layout="@layout/fragment_Recipe"
+        android:label="RecipeFragment" >
+
+        <argument
+            android:name="categorySelected"
+            app:argType="com.example.recipe2.data.entity.Category"/>
+
+    </fragment>
 
 </navigation>
