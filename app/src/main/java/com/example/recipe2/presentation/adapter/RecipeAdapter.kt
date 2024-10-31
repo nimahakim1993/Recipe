@@ -63,6 +63,7 @@ class RecipeAdapter: RecyclerView.Adapter<RecipeAdapter.MyViewHolder>() {
             binding.apply {
                 tvCategory.text = categoryTitle
                 tvRecipe.text = item.title
+                ivRecipe.setImageResource(item.imageUrl)
 
                 root.setOnClickListener {
                     onItemClickListener?.let {

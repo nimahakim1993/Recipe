@@ -58,6 +58,7 @@ class CategoryAdapter: RecyclerView.Adapter<CategoryAdapter.MyViewHolder>() {
         fun bind(item: Category) {
             binding.apply {
                 tvTitle.text = item.title
+                ivCategory.setImageResource(item.imageUrl)
 
                 root.setOnClickListener {
                     onItemClickListener?.let {

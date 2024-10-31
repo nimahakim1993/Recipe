@@ -9,6 +9,7 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.recipe2.R
 import com.example.recipe2.data.entity.Recipe
 import com.example.recipe2.data.model.Ingredient
 import com.example.recipe2.databinding.FragmentDetailBinding
@@ -51,7 +52,7 @@ class DetailFragment: Fragment() {
 
 
         binding.apply {
-            //todo image
+            ivRecipe.setImageResource(recipe.imageUrl)
             tvRecipe.text = recipe.title
             tvDirectionToCook.text = recipe.directionToCook
             homeViewModel.getCategoryTitleById(recipe.categoryId).observe(viewLifecycleOwner) { categoryTitle ->

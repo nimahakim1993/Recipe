@@ -10,7 +10,7 @@ data class Recipe (
     @PrimaryKey(autoGenerate = true) val id: Int = 0,
     @ColumnInfo val title: String,
     @ColumnInfo(name = "category_id") val categoryId: Int,
-    @ColumnInfo val imageUrl: String,
+    @ColumnInfo val imageUrl: Int,
     @ColumnInfo val ingredients: List<Ingredient>,
     @ColumnInfo(name = "direction_to_cook") val directionToCook: String,
 ): java.io.Serializable
