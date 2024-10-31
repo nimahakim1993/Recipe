@@ -8,4 +8,6 @@ interface HomeRepository {
 
     fun getCategoryRecipes(categoryId: Int): Flow<List<Recipe>>
     fun getAllCategories(): Flow<List<Category>>
+
+    suspend fun getCategoryById(categoryId: Int): Category
 }

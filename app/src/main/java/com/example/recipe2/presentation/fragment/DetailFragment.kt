@@ -47,11 +47,16 @@ class DetailFragment: Fragment() {
         args.let {
             this.recipe = it.recipeSelected
         }
+
+
+
         binding.apply {
             //todo image
             tvRecipe.text = recipe.title
-            tvCategory.text = recipe.categoryId.toString()   //todo change
             tvDirectionToCook.text = recipe.directionToCook
+            homeViewModel.getCategoryTitleById(recipe.categoryId).observe(viewLifecycleOwner) { categoryTitle ->
+                tvCategory.text = categoryTitle
+            }
 
         }
 

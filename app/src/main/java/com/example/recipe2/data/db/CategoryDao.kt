@@ -13,4 +13,7 @@ interface CategoryDao {
 
     @Query("SELECT * FROM categories")
     fun getAllCategories(): Flow<List<Category>>
+
+    @Query("SELECT * FROM categories WHERE id = :categoryId")
+    suspend fun getCategoryTitle(categoryId: Int): Category
 }

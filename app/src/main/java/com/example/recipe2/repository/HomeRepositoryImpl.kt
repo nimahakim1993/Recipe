@@ -14,4 +14,10 @@ class HomeRepositoryImpl(private val recipeDao: RecipeDao, private val categoryD
     override fun getAllCategories(): Flow<List<Category>> {
         return categoryDao.getAllCategories()
     }
+
+    override suspend fun getCategoryById(categoryId: Int): Category {
+        return categoryDao.getCategoryTitle(categoryId)
+    }
+
+
 }
