@@ -65,6 +65,8 @@ dependencies {
     implementation(libs.com.google.accompanist.systemuicontroller)
     implementation(libs.com.google.accompanist.permissions)
     implementation(libs.io.github.tutorialsandroid.filepicker)
+    implementation(libs.io.github.inflationx.calligraphy3)
+    implementation(libs.io.github.inflationx.viewpump)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

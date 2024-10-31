@@ -19,7 +19,7 @@
         app:layout_constraintEnd_toStartOf="@id/tv_value"
         app:layout_constraintHorizontal_weight="1" />
 
-    <androidx.appcompat.widget.AppCompatTextView
+    <com.example.recipe2.presentation.util.PersianNumberTextView
         android:id="@+id/tv_value"
         style="@style/tv_h6"
         android:layout_width="0dp"
