@@ -71,6 +71,9 @@ class AddRecipeFragment: Fragment() {
                 if (key.isNotEmpty() && value.isNotEmpty()){
                     ingredientList.add(Ingredient(key, value))
                     chipsAdapter.updateData(ingredientList)
+
+                    etKeyIngredient.setText("")
+                    etValueIngredient.setText("")
                 }
             }
 

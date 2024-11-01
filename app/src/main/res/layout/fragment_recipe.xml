@@ -26,4 +26,33 @@
         app:backgroundTint="@color/colorPrimary"
         android:layout_margin="12dp"/>
 
+    <LinearLayout
+        android:id="@+id/ll_empty"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:visibility="gone"
+        android:orientation="vertical">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            app:srcCompat="@drawable/icon_empty_result"
+            app:tint="@color/gray_400"/>
+        <androidx.appcompat.widget.AppCompatTextView
+            style="@style/tv_h3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:text="در این دسته بندی غذایی تا اکنون وجود ندارد"
+            android:layout_marginTop="12dp"
+            android:textColor="@color/gray_100"
+            />
+
+    </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

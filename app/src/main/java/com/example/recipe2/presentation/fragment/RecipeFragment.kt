@@ -65,6 +65,9 @@ class RecipeFragment: Fragment() {
 
             if (recipes.isNotEmpty())
                 initRecycler(recipes)
+            else{
+                showEmptyLayout()
+            }
         }
 
         recipeAdapter.setOnItemClickListener { recipe ->
@@ -79,7 +82,13 @@ class RecipeFragment: Fragment() {
 
     }
 
+    private fun showEmptyLayout() {
+        binding.rvRecipes.visibility = View.GONE
+        binding.llEmpty.visibility = View.VISIBLE
+    }
+
     private fun initRecycler(recipes: List<Recipe>) {
+        binding.llEmpty.visibility = View.GONE
         recipeAdapter.updateData(recipes, category.title)
         binding.rvRecipes.apply {
             layoutManager = GridLayoutManager(requireContext(), 2)
