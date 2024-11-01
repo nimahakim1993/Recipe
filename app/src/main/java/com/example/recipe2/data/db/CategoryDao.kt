@@ -16,4 +16,7 @@ interface CategoryDao {
 
     @Query("SELECT * FROM categories WHERE id = :categoryId")
     suspend fun getCategoryTitle(categoryId: Int): Category
+
+    @Query("SELECT * FROM categories WHERE title LIKE '%' || :value || '%'")
+    fun searchCategory(value: String): Flow<List<Category>>
 }

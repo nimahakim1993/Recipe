@@ -8,6 +8,8 @@ interface HomeRepository {
 
     fun getCategoryRecipes(categoryId: Int): Flow<List<Recipe>>
     fun getAllCategories(): Flow<List<Category>>
+    fun searchRecipes(value: String): Flow<List<Recipe>>
+    fun searchCategories(value: String): Flow<List<Category>>
 
     suspend fun getCategoryById(categoryId: Int): Category
     suspend fun addCategory(category: Category)

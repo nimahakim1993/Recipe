@@ -21,6 +21,9 @@ class HomeViewModel(
     fun getCategoryRecipes(categoryId: Int) = homeRepository.getCategoryRecipes(categoryId).asLiveData(Dispatchers.IO)
     fun getAllCategories() = homeRepository.getAllCategories().asLiveData(Dispatchers.IO)
 
+    fun searchRecipes(value: String) = homeRepository.searchRecipes(value).asLiveData(Dispatchers.IO)
+    fun searchCategories(value: String) = homeRepository.searchCategories(value).asLiveData(Dispatchers.IO)
+
     fun getCategoryTitleById(categoryId: Int) = liveData {
         val category = homeRepository.getCategoryById(categoryId)
         emit(category.title)

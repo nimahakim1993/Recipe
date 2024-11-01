@@ -78,6 +78,7 @@ class MainActivity : MyActivity() {
                 }
                 R.id.detailFragment ->{
                     supportActionBar?.title = destination.label
+                    hideBottomNavigation()
                 }
                 R.id.addCategoryFragment ->{
                     hideBottomNavigation()

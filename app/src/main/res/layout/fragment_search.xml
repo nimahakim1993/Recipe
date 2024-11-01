@@ -1,17 +1,110 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layoutDirection="rtl"
+    android:padding="10dp"
+    android:background="@color/gray_100"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <TextView
+    <androidx.appcompat.widget.SearchView
+        android:id="@+id/search_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        android:gravity="end"
+        app:queryHint="جستجو"
+        android:layoutDirection="ltr"
+        app:iconifiedByDefault="false"
+        app:searchIcon="@drawable/ic_search"
+        app:closeIcon="@drawable/ic_close"
+        android:background="@drawable/bg_chips"
+        app:queryBackground="@android:color/transparent"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_show_empty"
+        style="@style/tv_h4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="سرچ"
-        android:textSize="18sp"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/search_view"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"/>
+        android:textColor="@color/gray_400"
+        android:layout_marginTop="18dp"
+        android:text="چیزی بنویسید تا جستجو کنیم"/>
+
+    <com.example.recipe2.presentation.util.PersianNumberTextView
+        android:id="@+id/tv_num_recipe"
+        style="@style/tv_h6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="10dp"
+        app:layout_constraintTop_toBottomOf="@id/search_view"
+        app:layout_constraintStart_toStartOf="parent"
+        android:visibility="gone"
+        tools:text="2 نتیجه در دستور پخت"
+        android:textColor="@color/gray_400"/>
+
+    <com.example.recipe2.presentation.util.PersianNumberTextView
+        android:id="@+id/tv_num_category"
+        style="@style/tv_h6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="10dp"
+        app:layout_constraintTop_toBottomOf="@id/tv_num_recipe"
+        app:layout_constraintStart_toStartOf="parent"
+        android:visibility="gone"
+        tools:text="2 نتیجه در دسته بندی"
+        android:textColor="@color/gray_400"/>
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/nested"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@id/tv_num_category"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:visibility="gone"
+        android:fillViewport="true">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_recipes"
+                android:nestedScrollingEnabled="true"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                tools:listitem="@layout/item_recipe"
+                tools:itemCount="2"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/rv_category"
+                tools:ignore="MissingConstraints" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_category"
+                android:nestedScrollingEnabled="true"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                tools:listitem="@layout/item_category"
+                tools:itemCount="2"
+                app:layout_constraintTop_toBottomOf="@id/rv_recipes"
+                app:layout_constraintBottom_toBottomOf="parent"
+                tools:ignore="MissingConstraints" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+    </androidx.core.widget.NestedScrollView>
+
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
