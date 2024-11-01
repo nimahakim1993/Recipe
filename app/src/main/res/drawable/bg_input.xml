@@ -10,5 +10,11 @@
 
     </stroke>
 
+    <solid
+        android:color="@color/white">
+
+
+    </solid>
+
 
 </shape>

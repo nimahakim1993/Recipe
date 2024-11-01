@@ -23,7 +23,7 @@
         android:src="@drawable/ic_add"
         app:tint="@color/white"
         app:fabSize="normal"
-        app:backgroundTint="@color/colorPrimary"
+        app:backgroundTint="@color/yellow_high"
         android:layout_margin="12dp"/>
 
     <LinearLayout
@@ -47,10 +47,10 @@
             style="@style/tv_h3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="20sp"
+            android:textSize="18sp"
             android:text="در این دسته بندی غذایی تا اکنون وجود ندارد"
             android:layout_marginTop="12dp"
-            android:textColor="@color/gray_100"
+            android:textColor="@color/gray_400"
             />
 
     </LinearLayout>
