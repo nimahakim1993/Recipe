@@ -1,6 +1,8 @@
 package com.example.recipe2.presentation.fragment
 
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -46,20 +48,15 @@ class HomeFragment: Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-//        homeViewModel.getAllRecipe().observe(viewLifecycleOwner){recipes ->
-//            Toast.makeText(requireContext(), "${recipes.size}", Toast.LENGTH_SHORT).show()
-//        }
-
-
-        homeViewModel.getAllCategories().observe(viewLifecycleOwner) { categories ->
-
-//                Toast.makeText(requireContext(), "${recipes.size}", Toast.LENGTH_SHORT).show()
-            if (categories.isNotEmpty())
-                initRecycler(categories)
-
-
-
+        homeViewModel.getAllCategories().observe(viewLifecycleOwner){
         }
+        Handler(Looper.getMainLooper()).postDelayed({
+            homeViewModel.getAllCategories().observe(viewLifecycleOwner) { categories ->
+                if (categories.isNotEmpty())
+                    initRecycler(categories)
+            }
+        }, 100)
+
 
         binding.fabAddCategory.setOnClickListener {
             findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToAddCategoryFragment())
