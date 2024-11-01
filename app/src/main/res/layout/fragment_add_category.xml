@@ -29,7 +29,7 @@
             <androidx.appcompat.widget.AppCompatTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="افزودن تصویر"
+                android:text="@string/title_add_image"
                 android:textColor="@color/gray"/>
 
 
@@ -56,7 +56,7 @@
             android:layout_height="wrap_content"
             android:inputType="text"
             android:textAlignment="textStart"
-            android:hint="عنوان دسته بندی"
+            android:hint="@string/title_hint_category"
             android:textDirection="rtl"
             tools:ignore="RtlHardcoded" />
     </com.google.android.material.textfield.TextInputLayout>
@@ -67,7 +67,7 @@
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@id/til_category"
         android:layout_marginTop="16dp"
-        android:text="افزودن"
+        android:text="@string/title_add"
         android:textSize="16sp"
         app:icon="@drawable/ic_add"
         app:iconGravity="textStart"

@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
     android:layoutDirection="rtl"
-    android:padding="10dp"
+    android:padding="@dimen/fragment_content_padding_medium"
     android:background="@color/gray_100"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
@@ -33,7 +33,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:textColor="@color/gray_400"
         android:layout_marginTop="18dp"
-        android:text="چیزی بنویسید تا جستجو کنیم"/>
+        android:text="@string/title_search_command"/>
 
     <com.example.recipe2.presentation.util.PersianNumberTextView
         android:id="@+id/tv_num_recipe"

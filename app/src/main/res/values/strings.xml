@@ -7,4 +7,17 @@
     <string name="title_category">دسته بندی: %1$s</string>
     <string name="result_recipe">نتیجه در دستور پخت: %1$d</string>
     <string name="result_category">نتیجه در دسته بندی: %1$d</string>
+
+    <string name="title_add">افزودن</string>
+    <string name="title_add_image">افزودن تصویر</string>
+    <string name="title_hint_category">عنوان دسته بندی</string>
+    <string name="title_hint_recipe">عنوان غذا</string>
+    <string name="title_hint_direction_to_cook">توضیحات مربوط به دستور پخت غذا</string>
+    <string name="title_add_ingredients">ورود مواد اولیه</string>
+    <string name="title_key">عنوان</string>
+    <string name="title_value">مقدار</string>
+    <string name="title_ingredient">مواد اولیه</string>
+    <string name="title_recipe">دستور پخت</string>
+    <string name="title_search_command">چیزی بنویسید تا جستجو کنیم</string>
+    <string name="title_enter">ورود</string>
 </resources>

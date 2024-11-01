@@ -27,7 +27,7 @@
         android:layout_weight="1"
         android:gravity="end"
         android:textColor="@color/textTitleColor"
-        android:text="عنوان"/>
+        android:text="@string/title_key"/>
 
 
 </LinearLayout>
