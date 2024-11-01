@@ -40,11 +40,11 @@ class DataBaseModule {
 
                     // Sample Categories
                     val categories = SampleData.categories
-                    categories.forEach { categoryDao.insert(it) }
+                    categoryDao.insertList(categories)
 
                     // Sample Recipes
                     val recipes = SampleData.recipes
-                    recipes.forEach { recipeDao.insert(it) }
+                    recipeDao.insertList(recipes)
                 }
             }
         }

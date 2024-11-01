@@ -48,8 +48,7 @@ class HomeFragment: Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        homeViewModel.getAllCategories().observe(viewLifecycleOwner){
-        }
+        homeViewModel.getAllCategories().observe(viewLifecycleOwner){}
         Handler(Looper.getMainLooper()).postDelayed({
             homeViewModel.getAllCategories().observe(viewLifecycleOwner) { categories ->
                 if (categories.isNotEmpty())
