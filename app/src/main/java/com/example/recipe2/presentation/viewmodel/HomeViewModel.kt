@@ -5,6 +5,7 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.asLiveData
 import androidx.lifecycle.liveData
 import androidx.lifecycle.viewModelScope
+import com.example.recipe2.data.entity.Category
 import com.example.recipe2.repository.HomeRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
@@ -22,6 +23,10 @@ class HomeViewModel(
     fun getCategoryTitleById(categoryId: Int) = liveData {
         val category = homeRepository.getCategoryById(categoryId)
         emit(category.title)
+    }
+
+    fun addCategory(category: Category) = viewModelScope.launch {
+        homeRepository.addCategory(category)
     }
 
 }

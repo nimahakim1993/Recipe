@@ -10,4 +10,5 @@ interface HomeRepository {
     fun getAllCategories(): Flow<List<Category>>
 
     suspend fun getCategoryById(categoryId: Int): Category
+    suspend fun addCategory(category: Category)
 }

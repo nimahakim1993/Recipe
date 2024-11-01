@@ -7,6 +7,7 @@ import android.widget.PopupMenu
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
+import com.example.recipe2.R
 import com.example.recipe2.data.entity.Category
 import com.example.recipe2.databinding.ItemCategoryBinding
 
@@ -58,7 +59,8 @@ class CategoryAdapter: RecyclerView.Adapter<CategoryAdapter.MyViewHolder>() {
         fun bind(item: Category) {
             binding.apply {
                 tvTitle.text = item.title
-                ivCategory.setImageResource(item.imageUrl)
+                //show default when is 0 because user cant add image
+                ivCategory.setImageResource(if (item.imageUrl == 0) R.drawable.aa else item.imageUrl)
 
                 root.setOnClickListener {
                     onItemClickListener?.let {

@@ -19,5 +19,9 @@ class HomeRepositoryImpl(private val recipeDao: RecipeDao, private val categoryD
         return categoryDao.getCategoryTitle(categoryId)
     }
 
+    override suspend fun addCategory(category: Category) {
+        categoryDao.insert(category)
+    }
+
 
 }

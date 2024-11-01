@@ -79,6 +79,9 @@ class MainActivity : MyActivity() {
                 R.id.detailFragment ->{
                     supportActionBar?.title = destination.label
                 }
+                R.id.addCategoryFragment ->{
+                    hideBottomNavigation()
+                }
                 R.id.searchFragment -> {
                     showBottomNavigation()
                 }
@@ -103,15 +106,20 @@ class MainActivity : MyActivity() {
     }
 
     private fun hideBottomNavigation(){
-        binding.bottomNavView.clearAnimation()
-        binding.bottomNavView.animate().translationY(binding.bottomNavView.height.toFloat()).duration = 300
-        binding.bottomNavView.visibility = View.GONE
+        binding.apply {
+            bottomNavView.clearAnimation()
+            bottomNavView.animate().translationY(binding.bottomNavView.height.toFloat()).duration = 300
+            bottomNavView.visibility = View.GONE
+        }
     }
 
     private fun showBottomNavigation(){
-        binding.bottomNavView.clearAnimation()
-        binding.bottomNavView.animate().translationY(0f).duration = 300
-        binding.bottomNavView.visibility = View.VISIBLE
+        binding.apply {
+            bottomNavView.clearAnimation()
+            bottomNavView.animate().translationY(0f).duration = 300
+            bottomNavView.visibility = View.VISIBLE
+        }
+
     }
     @Deprecated("Deprecated in Java")
     override fun onBackPressed() {
