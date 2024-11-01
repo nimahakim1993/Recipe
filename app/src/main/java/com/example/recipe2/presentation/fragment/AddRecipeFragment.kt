@@ -37,10 +37,6 @@ class AddRecipeFragment: Fragment() {
     @Inject
     lateinit var chipsAdapter: ChipsAdapter
 
-    @Inject
-    lateinit var mainViewModelFactory: MainViewModelFactory
-    private val mainViewModel: MainViewModel by activityViewModels{mainViewModelFactory}
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,

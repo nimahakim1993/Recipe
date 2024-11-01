@@ -29,10 +29,6 @@ class AddCategoryFragment: Fragment() {
     lateinit var homeViewModelFactory: HomeViewModelFactory
     private val homeViewModel: HomeViewModel by viewModels{ homeViewModelFactory }
 
-    @Inject
-    lateinit var mainViewModelFactory: MainViewModelFactory
-    private val mainViewModel: MainViewModel by activityViewModels{mainViewModelFactory}
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
