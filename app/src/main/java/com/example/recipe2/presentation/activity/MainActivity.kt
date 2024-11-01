@@ -5,14 +5,9 @@ import android.os.Handler
 import android.os.Looper
 import android.view.View
 import android.widget.Toast
-import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
-import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import androidx.drawerlayout.widget.DrawerLayout
-import androidx.fragment.app.viewModels
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
@@ -22,8 +17,6 @@ import androidx.navigation.ui.setupWithNavController
 import com.example.recipe2.MyActivity
 import com.example.recipe2.R
 import com.example.recipe2.databinding.ActivityMainBinding
-import com.example.recipe2.presentation.viewmodel.HomeViewModel
-import com.example.recipe2.presentation.viewmodel.HomeViewModelFactory
 import com.example.recipe2.presentation.viewmodel.MainViewModel
 import com.example.recipe2.presentation.viewmodel.MainViewModelFactory
 import dagger.hilt.android.AndroidEntryPoint
@@ -35,7 +28,6 @@ class MainActivity : MyActivity() {
 
     private lateinit var navController: NavController
     private lateinit var appBarConfiguration: AppBarConfiguration
-    private lateinit var currentlabel :String
 
     @Inject
     lateinit var mainViewModelFactory: MainViewModelFactory
@@ -96,7 +88,7 @@ class MainActivity : MyActivity() {
         }
 
         mainViewModel.currentFragmentLabel.observe(this){ label ->
-            val destinationId = navController.currentDestination?.id
+//            val destinationId = navController.currentDestination?.id
 //            if (destinationId == R.id.recipeFragment || destinationId == R.id.detailFragment) {
                 supportActionBar?.title = label
 //            }
