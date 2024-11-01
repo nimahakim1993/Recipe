@@ -3,7 +3,6 @@ package com.example.recipe2.presentation.adapter
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.widget.PopupMenu
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
@@ -60,7 +59,7 @@ class CategoryAdapter: RecyclerView.Adapter<CategoryAdapter.MyViewHolder>() {
             binding.apply {
                 tvTitle.text = item.title
                 //show default when is 0 because user cant add image
-                ivCategory.setImageResource(if (item.imageUrl == 0) R.drawable.aa else item.imageUrl)
+                ivCategory.setImageResource(if (item.imageUrl == 0) R.drawable.img_default else item.imageUrl)
 
                 root.setOnClickListener {
                     onItemClickListener?.let {

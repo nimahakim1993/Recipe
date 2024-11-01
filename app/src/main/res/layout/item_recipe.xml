@@ -20,7 +20,7 @@
             android:layout_height="130dp"
             app:shapeAppearance="@style/ShapeAppearanceOverlay.App.CornerSize20Percent"
             android:scaleType="centerCrop"
-            android:src="@drawable/aa"
+            android:src="@drawable/img_default"
             android:background="@color/red"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"

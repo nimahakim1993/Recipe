@@ -3,13 +3,11 @@ package com.example.recipe2.presentation.adapter
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.widget.PopupMenu
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.example.recipe2.data.entity.Category
+import com.example.recipe2.R
 import com.example.recipe2.data.entity.Recipe
-import com.example.recipe2.databinding.ItemCategoryBinding
 import com.example.recipe2.databinding.ItemRecipeBinding
 
 
@@ -63,7 +61,7 @@ class RecipeAdapter: RecyclerView.Adapter<RecipeAdapter.MyViewHolder>() {
             binding.apply {
                 tvCategory.text = categoryTitle
                 tvRecipe.text = item.title
-                ivRecipe.setImageResource(item.imageUrl)
+                ivRecipe.setImageResource(if (item.imageUrl == 0) R.drawable.img_default else item.imageUrl)
 
                 root.setOnClickListener {
                     onItemClickListener?.let {

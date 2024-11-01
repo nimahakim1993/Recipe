@@ -23,5 +23,9 @@ class HomeRepositoryImpl(private val recipeDao: RecipeDao, private val categoryD
         categoryDao.insert(category)
     }
 
+    override suspend fun addRecipe(recipe: Recipe) {
+        recipeDao.insert(recipe)
+    }
+
 
 }

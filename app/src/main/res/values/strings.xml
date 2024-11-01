@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">Recipe2</string>
     <string name="desc_back_application">برای خروج مجددا بازگشت را بزنید</string>
+
+
+    <string name="create_recipe_for">ایجاد دستور پخت برای %1$s</string>
+    <string name="title_category">دسته بندی: %1$s</string>
 </resources>

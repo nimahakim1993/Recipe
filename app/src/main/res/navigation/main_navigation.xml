@@ -37,7 +37,7 @@
     <fragment
         android:id="@+id/recipeFragment"
         android:name="com.example.recipe2.presentation.fragment.RecipeFragment"
-        tools:layout="@layout/fragment_Recipe"
+        tools:layout="@layout/fragment_recipe"
         android:label="" >
 
         <argument
@@ -46,6 +46,9 @@
         <action
             android:id="@+id/action_recipeFragment_to_detailFragment"
             app:destination="@id/detailFragment" />
+        <action
+            android:id="@+id/action_recipeFragment_to_addRecipeFragment"
+            app:destination="@id/addRecipeFragment" />
 
     </fragment>
     <fragment
@@ -64,5 +67,16 @@
         android:name="com.example.recipe2.presentation.fragment.AddCategoryFragment"
         tools:layout="@layout/fragment_add_category"
         android:label="ایجاد دسته بندی" />
+    <fragment
+        android:id="@+id/addRecipeFragment"
+        android:name="com.example.recipe2.presentation.fragment.AddRecipeFragment"
+        tools:layout="@layout/fragment_add_recipe"
+        android:label="ایجاد دستور پخت" >
+
+        <argument
+            android:name="categorySelected"
+            app:argType="com.example.recipe2.data.entity.Category"/>
+
+    </fragment>
 
 </navigation>

@@ -11,6 +11,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.recipe2.R
 import com.example.recipe2.data.entity.Category
 import com.example.recipe2.data.entity.Recipe
 import com.example.recipe2.databinding.FragmentHomeBinding
@@ -60,24 +61,20 @@ class RecipeFragment: Fragment() {
 
         mainViewModel.setFragmentLabel(category.title)
 
-//        homeViewModel.getAllRecipe().observe(viewLifecycleOwner){recipes ->
-//            Toast.makeText(requireContext(), "${recipes.size}", Toast.LENGTH_SHORT).show()
-//        }
+        homeViewModel.getCategoryRecipes(category.id).observe(viewLifecycleOwner) { recipes ->
 
-
-            homeViewModel.getCategoryRecipes(category.id).observe(viewLifecycleOwner) { recipes ->
-
-//                Toast.makeText(requireContext(), "${recipes.size}", Toast.LENGTH_SHORT).show()
-                if (recipes.isNotEmpty())
-                    initRecycler(recipes)
-
-
-
-            }
+            if (recipes.isNotEmpty())
+                initRecycler(recipes)
+        }
 
         recipeAdapter.setOnItemClickListener { recipe ->
             mainViewModel.setFragmentLabel(recipe.title)
             findNavController().navigate(RecipeFragmentDirections.actionRecipeFragmentToDetailFragment(recipe))
+        }
+
+        binding.fabAddRecipe.setOnClickListener {
+            mainViewModel.setFragmentLabel(getString(R.string.create_recipe_for, category.title))
+            findNavController().navigate(RecipeFragmentDirections.actionRecipeFragmentToAddRecipeFragment(category))
         }
 
     }

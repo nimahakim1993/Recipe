@@ -11,4 +11,5 @@ interface HomeRepository {
 
     suspend fun getCategoryById(categoryId: Int): Category
     suspend fun addCategory(category: Category)
+    suspend fun addRecipe(recipe: Recipe)
 }

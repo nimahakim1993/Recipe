@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="18dp"
+    android:layoutDirection="rtl"
+    android:background="@color/gray_100"
+    android:fillViewport="true"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cv_add_image"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        app:layout_constraintTop_toTopOf="parent"
+        android:backgroundTint="@color/white">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                app:srcCompat="@drawable/ic_add"
+                app:tint="@color/gray_400"/>
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="افزودن تصویر"
+                android:textColor="@color/gray"/>
+
+
+        </LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til_title"
+        style="@style/MyDenseOutlined"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/cv_add_image"
+        app:endIconMode="clear_text"
+        app:boxBackgroundColor="@color/white"
+        android:layout_marginTop="20dp"
+
+        >
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:hint="عنوان غذا"
+            android:textAlignment="textStart"
+            android:textDirection="rtl"
+            tools:ignore="RtlHardcoded" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/til_category"
+        style="@style/tv_h3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/til_title"
+        app:layout_constraintStart_toStartOf="parent"
+        android:textColor="@color/gray"
+        android:layout_marginTop="10dp"
+        tools:text="دسته بندی: دسر"/>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til_direction_to_cook"
+        style="@style/MyDenseOutlined"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        app:layout_constraintTop_toBottomOf="@id/til_category"
+        app:layout_constraintStart_toStartOf="parent"
+        app:counterMaxLength="280"
+        app:counterEnabled="true"
+        app:helperTextEnabled="true"
+        app:boxStrokeColor="@color/colorPrimary"
+        app:helperText="حداکثر ۲۸۰ کاراکتر مجاز است"
+        >
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_direction_to_cook"
+            android:layout_width="match_parent"
+            android:layout_height="140dp"
+            android:inputType="text"
+            android:textDirection="rtl"
+            android:hint="توضیحات مربوط به دستور پخت غذا"
+            android:gravity="right|top"
+            tools:ignore="RtlHardcoded" />
+    </com.google.android.material.textfield.TextInputLayout>
+    
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv1"
+        style="@style/tv_h4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/til_direction_to_cook"
+        android:text="ورود مواد اولیه"
+        android:textColor="@color/yellow_high"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="14dp"/>
+    
+    <LinearLayout
+        android:id="@+id/ll_add_ingredient"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@id/tv1"
+        app:layout_constraintBottom_toTopOf="@id/rv_items"
+        android:padding="6dp"
+        android:gravity="center_vertical">
+        
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/et_key_ingredient"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_input"
+            android:padding="10dp"
+            android:nextFocusDown="@id/et_value_ingredient"
+            android:hint="عنوان"/>
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/et_value_ingredient"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_input"
+            android:layout_marginHorizontal="10dp"
+            android:padding="10dp"
+            android:hint="مقدار"/>
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/ib_add_ingredient"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/ic_add_circle"
+            android:background="@android:color/transparent"
+            android:foreground="?attr/selectableItemBackgroundBorderless"
+            android:tint="@color/colorPrimaryDark"
+
+            android:layout_marginEnd="8dp"/>
+        
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_items"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@id/ll_add_ingredient"
+        app:layout_constraintBottom_toTopOf="@id/btn_add"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_add"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="16dp"
+        android:text="افزودن"
+        android:textSize="16sp"
+        app:icon="@drawable/ic_add"
+        app:iconGravity="textStart"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        app:iconTint="@color/white"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.core.widget.NestedScrollView>
